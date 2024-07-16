@@ -18,6 +18,6 @@
 
 
 <%= name %> 님의 혈액형은 <%= booldtype %> 형이고 성격은 AB형이야
-x
+<img alt="" src="http://www.ygweekly.com/news/photo/201802/3888_4308_5636.jpg">
 </body>
 </html>
