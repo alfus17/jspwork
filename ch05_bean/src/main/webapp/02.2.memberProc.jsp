@@ -3,6 +3,7 @@
 <jsp:useBean id="regBean" class="ch05.MemberBean" />
 <jsp:setProperty name="regBean" property="*" />
 
+
 <!DOCTYPE html>
 <html>
 <head>
