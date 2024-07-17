@@ -39,7 +39,7 @@
 			<td><jsp:getProperty property="birthday" name="regBean"/></td>
 		</tr>
 		<tr>
-			<td>이메일</td>
+			<td>이메일</td>z
 			<td><jsp:getProperty property="email" name="regBean"/></td>
 		</tr>
 	</table>
