@@ -18,7 +18,7 @@
         height:30px;
         }
 </style>
-<script src="script.js" charset="utf-8"></script>
+<script src="script.js?v=<%=System.currentTimeMillis() %>" charset="utf-8"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function findAddr() {
@@ -60,8 +60,9 @@
 			<tr>
 				<td>아이디</td>
 				<td>
-					<input name="id">				 	   			 
-					<input type="button" value="ID중복확인" onclick="idCheck(this.form.id.value);"> 
+					<input name="id" onkeydown="inputIdChk();">				 	   			 
+					<input type="button" value="ID중복확인" onclick="idCheck(this.form.id.value);">
+					<input type="hidden" name="idBtnCheck" value="idUncheck"> 
 				</td>
 				<td>영문과 숫자로만 입력하세요</td>
 			</tr>
@@ -153,9 +154,9 @@
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="button" value="회원가입">&emsp;
+					<input type="button" value="회원가입" onclick="inputCheck();">&emsp;
 					<input type="reset" value="다시쓰기">&emsp;
-					<input type="button" value="로그인" onclick="location.">
+					<input type="button" value="로그인" onclick="location.href='login.jsp'">
 				</td>
 			</tr>
 		</table>
