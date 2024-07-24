@@ -21,7 +21,7 @@ public class LoginDao {
 		pool = DBConnectionMgr.getInstance();
 	}
 	
-	// 로그인시 정보 조회
+	// 로그인시 학번과 pw로 조회 이후 userInfo 객체 반환
 	public userInfo checkLogIn(String id , String pwd) {
 		userInfo userinfo = null;
 		
