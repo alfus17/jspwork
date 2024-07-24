@@ -67,6 +67,8 @@
 		<input type="hidden" name="ref" value="<%=board.getRef() %>">
 		<input type="hidden" name="pos" value="<%=board.getPos() %>">
 		<input type="hidden" name="depth" value="<%=board.getDepth() %>">
+			
+		
 		
 	</form>  
 </body>
