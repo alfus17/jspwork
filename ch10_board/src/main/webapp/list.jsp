@@ -25,7 +25,7 @@
 	}
 	
 	/* [처음으로]를 누르면 keyField와 keyWord에 들어있는값 지우기 */
-	if(request.getParameter("reload") != null) {
+	if(request.getParameter("reload") != null) {	
 		if(request.getParameter("reload").equals("true")){
 			keyField = "";
 			keyWord = "";
@@ -71,18 +71,15 @@
 	function pageing(page) {
 		document.readFrm.nowPage.value=page;
 		document.readFrm.action="list.jsp";
-		console.log(document.readFrm.submit);
 		document.readFrm.submit();
 	}
 	function list() {
-		/*  document.listFrm.action = "list.jsp"; */
+		/* document.listFrm.action = "list.jsp"; */
 		document.listFrm.submit();
 	}
 	function read(num) {
 		document.readFrm.num.value=num;
-		console.log(document.readFrm);
 		document.readFrm.action="read.jsp";
-		console.log(document.readFrm.submit);
 		document.readFrm.submit();
 	}
 </script>
@@ -165,7 +162,7 @@
 			%>
 				</td>
 				<td colspan="2" style="text-align:right;">
-					<a href="" class="a">[글쓰기]</a>&emsp;
+					<a href="post.jsp" class="a">[글쓰기]</a>&emsp;
 					<a href="javascript:list();" class="a">[처음으로]</a>
 				</td>
 			</tr>
@@ -192,7 +189,7 @@
 			<input type="hidden" name="nowPage" value="1">
 		</form>
 		
-		<!-- 사용자가 만약 [2]를 누르면 2번째 페이지 보여주기 -->
+		<!-- 사용자가 만약 [2]를 누르면 2번째 페이지 보여주기와 상세보기 -->
 		<form name="readFrm">
 			<input type="hidden" name="num">
 			<input type="hidden" name="nowPage" value="<%=nowPage %>">

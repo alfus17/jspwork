@@ -134,7 +134,95 @@ public class BoardDao {
 		}
 		return board;
 	}
+	
+	// 게시물 등록하기
+	public boolean insertBoard(Board board) {
+		boolean flag = false;
 		
+		try {
+			con = pool.getConnection();
+			sql = "insert into board values(SEQ_BOARD.NEXTVAL,?,?,?,0,SEQ_BOARD.currval,0,sysdate,?,?,default)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getName());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getContent());
+			pstmt.setString(4, board.getPass());
+			pstmt.setString(5, board.getIp());
+			
+			if(pstmt.executeUpdate() == 1)
+				flag = true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return flag;
+	}
+	
+	// 게시물 수정
+	public void updateBoard(Board board) {
+		
+		try {
+			con = pool.getConnection();
+			sql = "update board set name=?, subject=?, content=? where num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getName());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getContent());
+			pstmt.setInt(4, board.getNum());
+			pstmt.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+	}
+	
+	// 답변의 위치값을 증가
+	public void replyPosUpdate(int ref, int pos) {
+		
+		try {
+			con = pool.getConnection();
+			sql = "update board set pos = pos+1 where ref = ? and pos > ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, pos);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+	}
+	
+	// 게시물 댓글
+	public void replyBoard(Board board) {
+		
+		try {
+			con = pool.getConnection();
+			sql = "insert into board values(seq_board.nextval,?,?,?,?,?,?,sysdate,?,?,default)";
+			
+			int depth = board.getDepth() + 1;	
+			int pos = board.getPos() + 1;
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getName());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getContent());
+			pstmt.setInt(4, pos);
+			pstmt.setInt(5, board.getRef());
+			pstmt.setInt(6, depth);
+			pstmt.setString(7, board.getPass());
+			pstmt.setString(8, board.getIp());
+			pstmt.executeUpdate();		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+	}
+	
 	// 게시물 총 레코드수
 	public int getTotalCount2() {
 		int totalCount = 0;
