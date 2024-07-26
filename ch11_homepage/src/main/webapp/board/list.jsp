@@ -29,6 +29,7 @@
 		if(request.getParameter("reload").equals("true")){
 			keyField = "";
 			keyWord = "";
+			
 		}
 	}
 	
@@ -47,7 +48,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>어림 없는 스트라이크ㅡ</title>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
