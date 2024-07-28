@@ -13,6 +13,8 @@
 </style>
 </head>
 <body>
+
+
 	<table border="1" align="center">
 		<form method="post" name="regForm" action="02.2.memberProc.jsp">
 			<tr>

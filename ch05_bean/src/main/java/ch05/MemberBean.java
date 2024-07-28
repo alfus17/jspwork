@@ -6,6 +6,9 @@ public class MemberBean {
 	private String name;
 	private String birthday;
 	private String email;
+	
+	
+	
 	public String getId() {
 		return id;
 	}
