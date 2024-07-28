@@ -14,7 +14,7 @@ public class LoginDao {
 	PreparedStatement pstmt = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	String sql = null;
+
 
 	// 생성자 생성시 DB 객체 생성
 	public LoginDao() {
@@ -28,28 +28,32 @@ public class LoginDao {
 		try {
 			con = pool.getConnection();
 			// id와 pwd 가 맞는 유저 검색 후 있을 경우 true 리턴			
-			sql = "select * from TB_STUDENT where STUDENT_NO = ? and STUDENT_PWD = ? ";
+			String query = "select * from TB_STUDENT where STUDENT_NO = ? and STUDENT_PWD = ? ";
 			
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
+			
+			System.out.println("query :" + query);
 			
 			// db쪽에 쿼리문 날리기 			
 			rs = pstmt.executeQuery();
 			
+			// 로그찍으면 한번 빠져서 다음 값으로 넘어가게됨 그렇기에 while 과 동시에 사용 불가 한번만 체크해야함				
+			/* System.out.println("rs.next() :" + rs.getString("student_no")); */
+			
 			if(rs.next()) {
-				while (rs.next()) {
-					userinfo = new userInfo();
-					userinfo.setstudentNo(rs.getString("student_no")); 
-					userinfo.setdepartmentNo(rs.getString("department_no")); 
-					userinfo.setstudentName(rs.getString("student_no")); 
-					userinfo.setstudentSsn(rs.getString("student_no")); 
-					userinfo.setstudentAddress(rs.getString("student_no")); 
-					userinfo.setentranceDate(rs.getString("student_no")); 
-					userinfo.setabsenceYs(rs.getString("student_no")); 
-					userinfo.setcoachProfessorNo(rs.getString("coach_professor_no")); 
-					
-				}
+			
+				userinfo = new userInfo();
+				userinfo.setstudentNo(rs.getString("student_no")); 
+				userinfo.setdepartmentNo(rs.getString("department_no")); 
+				userinfo.setstudentName(rs.getString("student_no")); 
+				userinfo.setstudentSsn(rs.getString("student_no")); 
+				userinfo.setstudentAddress(rs.getString("student_no")); 
+				userinfo.setentranceDate(rs.getString("student_no")); 
+				userinfo.setabsenceYs(rs.getString("student_no")); 
+				userinfo.setcoachProfessorNo(rs.getString("coach_professor_no")); 
+				
 			}		
 			
 		} catch (Exception e) {
@@ -58,8 +62,6 @@ public class LoginDao {
 			// 오류 및 처리 완료 이후 db 커넥션 끊기
 			pool.freeConnection(con);
 		}
-		
-		
 		return userinfo;
 	}
 	

@@ -18,7 +18,7 @@
 </head>
 <body>
 	<form action="05.2.sessionLoginProc.jsp" method="post">
-		ID : <input name="id"><p/>
+		ID : <input name="id" ><p/>
 		PW : <input type="password" name="pwd"><p/>
 		<input type="submit" value="login">
 		<input type="reset">

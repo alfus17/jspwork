@@ -11,7 +11,7 @@
 </head>
 
 <div>
-	<form action="loginProc.jsp">
+	<form action="mainHomePage.jsp">
 		<h2>로그인 페이지</h2>
 		아이디 : <input type="text" name="login_id" value="">
 		</p>

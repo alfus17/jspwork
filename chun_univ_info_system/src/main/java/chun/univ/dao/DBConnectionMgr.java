@@ -35,6 +35,8 @@ import java.util.Vector;
  */
 
 public class DBConnectionMgr {
+	
+
     private Vector connections = new Vector(10);
     private String _driver = "oracle.jdbc.OracleDriver",
     _url = "jdbc:oracle:thin:@localhost:1521:xe",
@@ -53,6 +55,7 @@ public class DBConnectionMgr {
      */
 
     public static DBConnectionMgr getInstance() {
+    	
         if (instance == null) {
             synchronized (DBConnectionMgr.class) {
                 if (instance == null) {

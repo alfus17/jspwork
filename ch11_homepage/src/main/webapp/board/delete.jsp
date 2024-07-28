@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="board.*" %>
 <jsp:useBean id="bDao" class="board.BoardDao" />
+<%! 
+	
+
+%>
+
 <%
 	int num = Integer.parseInt(request.getParameter("num"));
 	String nowPage = request.getParameter("nowPage");
@@ -16,12 +21,12 @@
 			if(result) {
 				response.sendRedirect("list.jsp?nowPage=" + nowPage);
 			} else {
-			%>
+%>
 				<script type="text/javascript">
 					alert("댓글이 있어 삭제할 수 없습니다");
 					history.go(-2);
 				</script>
-			<%		
+<%		
 			}	
 		} else {
 		%>
@@ -32,7 +37,7 @@
 		<%
 		}
 	} 
-%>
+	%>
 <!DOCTYPE html>
 <html>
 <head>

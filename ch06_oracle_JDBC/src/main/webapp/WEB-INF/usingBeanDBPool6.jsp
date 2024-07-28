@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+s
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, ch06.*" %>
 <jsp:useBean id = "uBean" class="ch06.UseBeanDBPool6"/>  
