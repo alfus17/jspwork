@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.websocket.Session;
+
 import java.io.IOException;
 
 import chun.univ.dto.userInfo;
@@ -40,6 +42,7 @@ public class loginServlet extends HttpServlet {
 			response.sendRedirect("mainHomePage.jsp");
 		}else {
 			// 유저 정보가 있을경우 다시 로그인폼으로 이동
+			
 			response.getWriter().println("<script>alert('Invalid username or password'); location.href='loginForm.jsp';</script>");
 			
 		}

@@ -19,4 +19,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>findPwdServlet</display-name>
+    <servlet-name>findPwdServlet</servlet-name>
+    <servlet-class>chun.univ.controller.findPwdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>findPwdServlet</servlet-name>
+    <url-pattern>/find.pwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>resetPwdServlet</display-name>
+    <servlet-name>resetPwdServlet</servlet-name>
+    <servlet-class>chun.univ.controller.resetPwdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>resetPwdServlet</servlet-name>
+    <url-pattern>/reset.pwd</url-pattern>
+  </servlet-mapping>
 </web-app>
